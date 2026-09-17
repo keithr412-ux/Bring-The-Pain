@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0053)file:///C:/Users/keith/Downloads/workout-tracker.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bring the Pain</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
 <style>
   :root{
     --bg: #1B1A18;
@@ -66,8 +66,10 @@
   .form-row input{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:3px;color:var(--chalk);padding:10px 12px;font-size:14px;font-family:'Inter',sans-serif;min-width:0;}
   .form-row input::placeholder{color:var(--chalk-dim);}
   .form-row input:focus{outline:none;border-color:var(--plate);}
-  .num-row{display:flex;gap:8px;}
-  .num-row input{flex:1;}
+  .num-row{display:flex;gap:8px;width:100%;}
+  .num-row input{flex:1;min-width:0;width:0;text-align:center;background:var(--bg);border:1px solid var(--line);border-radius:3px;color:var(--chalk);padding:10px 8px;font-size:14px;font-family:'Inter',sans-serif;}
+  .num-row input::placeholder{color:var(--chalk-dim);}
+  .num-row input:focus{outline:none;border-color:var(--plate);}
 
   button{cursor:pointer;border:none;font-family:'Inter',sans-serif;}
   .add-btn{width:100%;background:var(--plate);color:#1B1A18;font-weight:600;font-size:14px;padding:12px;border-radius:3px;margin-top:6px;letter-spacing:0.3px;transition:transform 0.08s ease;}
@@ -148,6 +150,10 @@
   .chart-wrap{margin-top:6px;}
   .chart-wrap svg{width:100%;height:auto;display:block;}
   .weight-list{margin-top:14px;}
+  .bmi-readout{background:var(--surface-2);border-radius:4px;padding:18px;text-align:center;margin-bottom:16px;}
+  .bmi-readout .bmi-num{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;color:var(--plate);line-height:1;}
+  .bmi-readout .bmi-cat{font-size:13px;font-weight:600;color:var(--chalk);margin-top:6px;}
+  .bmi-readout .bmi-hint{font-size:12px;color:var(--chalk-dim);margin-top:8px;}
 
   .footer-note{text-align:center;font-size:12px;color:var(--chalk-dim);margin-top:24px;}
 
@@ -164,7 +170,7 @@
 <div id="app">
   <div class="header">
     <h1>BRING THE <span>PAIN</span></h1>
-    <div class="date-today" id="todayLabel"></div>
+    <div class="date-today" id="todayLabel">Wednesday, Sep 16</div>
   </div>
 
   <div class="stats">
@@ -183,18 +189,18 @@
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="log">Log</button>
+    <button class="tab-btn" data-tab="log">Log</button>
     <button class="tab-btn" data-tab="plan">Plan</button>
-    <button class="tab-btn" data-tab="weight">Weight</button>
+    <button class="tab-btn active" data-tab="weight">Weight</button>
     <button class="tab-btn" data-tab="steps">Steps</button>
     <button class="tab-btn" data-tab="share">Share</button>
   </div>
 
-  <div class="tab-panel active" id="tab-log">
+  <div class="tab-panel" id="tab-log">
     <div class="card" id="planTodayCard" style="display:none;">
       <h2>Today's plan</h2>
       <div class="plan-today-title" id="planTodayTitle"></div>
-      <a class="today-plan-link" id="planTodayLink" href="#" target="_blank" rel="noopener" style="display:none;">Open saved workout ↗</a>
+      <a class="today-plan-link" id="planTodayLink" href="file:///C:/Users/keith/Downloads/workout-tracker.html#" target="_blank" rel="noopener" style="display:none;">Open saved workout ↗</a>
       <div id="planTodayList"></div>
     </div>
 
@@ -207,6 +213,10 @@
         <button class="preset-btn" data-secs="90">90s</button>
         <button class="preset-btn" data-secs="120">2:00</button>
         <button class="preset-btn" data-secs="180">3:00</button>
+      </div>
+      <div class="num-row" style="margin-bottom:10px;">
+        <input type="text" id="customTimerInput" placeholder="Custom (mm:ss)" inputmode="numeric" style="flex:1.5;">
+        <button class="preset-btn" id="customTimerSetBtn" style="flex:1;">Set</button>
       </div>
       <div class="timer-controls">
         <button class="btn-start" id="timerStartBtn">Start</button>
@@ -238,7 +248,7 @@
 
     <div class="card">
       <h2>Today's session</h2>
-      <div class="session-list" id="todayList"></div>
+      <div class="session-list" id="todayList"><div class="empty">No sets logged yet today. Add your first one above.</div></div>
     </div>
 
     <div class="card">
@@ -253,14 +263,14 @@
 
     <div class="card">
       <h2>History</h2>
-      <div id="historyList"></div>
+      <div id="historyList"><div class="empty">Nothing here yet. Past sessions show up as history.</div></div>
     </div>
   </div>
 
   <div class="tab-panel" id="tab-plan">
     <div class="card">
       <h2>Weekly plan</h2>
-      <div class="day-picker" id="dayPicker"></div>
+      <div class="day-picker" id="dayPicker"><button class="day-btn " data-day="Sun">Sun</button><button class="day-btn " data-day="Mon">Mon</button><button class="day-btn " data-day="Tue">Tue</button><button class="day-btn active" data-day="Wed">Wed</button><button class="day-btn " data-day="Thu">Thu</button><button class="day-btn " data-day="Fri">Fri</button><button class="day-btn " data-day="Sat">Sat</button></div>
       <div class="plan-name-row">
         <input type="text" id="planNameInput" placeholder="Name this day's workout (e.g. Push Day)" autocomplete="off">
       </div>
@@ -268,7 +278,7 @@
         <input type="number" id="planRoundsInput" placeholder="Rounds (e.g. 3, for a circuit)" inputmode="numeric" min="1">
       </div>
       <div class="saved-link" id="savedLinkRow" style="display:none;">
-        <a id="savedLinkAnchor" href="#" target="_blank" rel="noopener"></a>
+        <a id="savedLinkAnchor" href="file:///C:/Users/keith/Downloads/workout-tracker.html#" target="_blank" rel="noopener"></a>
         <button class="del" id="savedLinkDelBtn">×</button>
       </div>
       <div class="link-row">
@@ -280,7 +290,7 @@
         <button class="add-btn" id="planParseBtn" style="margin-top:0;">Auto-fill exercises from text</button>
         <div class="parse-status" id="planParseStatus"></div>
       </div>
-      <div id="planExerciseList"></div>
+      <div id="planExerciseList"><div class="empty">No exercises planned for this day yet.</div></div>
       <div class="edit-hint">Tap an exercise to edit it.</div>
       <div class="form-row" style="margin-top:6px;"><input type="text" id="planExerciseInput" placeholder="Exercise name" autocomplete="off"></div>
       <select class="plan-type-select" id="planTypeInput">
@@ -291,7 +301,7 @@
       <div class="plan-form-grid">
         <input type="number" id="planWeightInput" data-field="weight" placeholder="Weight (lb)" inputmode="decimal">
         <input type="number" id="planRepsInput" data-field="reps" placeholder="Reps" inputmode="numeric">
-        <input type="number" id="planRunInput" data-field="run" placeholder="Run (min)" inputmode="decimal">
+        <input type="number" id="planRunInput" data-field="run" placeholder="Run (min)" inputmode="decimal" style="display: none;">
       </div>
       <div class="form-row"><input type="number" id="planRestInput" placeholder="Rest between sets (sec)" inputmode="numeric"></div>
       <div class="plan-form-actions">
@@ -301,25 +311,37 @@
     </div>
   </div>
 
-  <div class="tab-panel" id="tab-weight">
+  <div class="tab-panel active" id="tab-weight">
     <div class="card">
-      <h2>Log body weight</h2>
-      <div class="num-row">
-        <input type="date" id="weightDateInput">
-        <input type="number" id="weightValueInput" placeholder="Weight (lb)" inputmode="decimal">
-      </div>
-      <button class="add-btn" id="weightAddBtn">Add weight</button>
-      <div class="plan-name-row" style="margin-top:14px;">
+      <h2>BMI</h2>
+      <div class="bmi-readout" id="bmiReadout"><div class="bmi-hint">Enter your height below to calculate BMI.</div></div>
+      <div class="plan-name-row">
         <div class="num-row" style="margin-bottom:0;">
           <input type="number" id="heightFeetInput" placeholder="Height (ft)" inputmode="numeric">
           <input type="number" id="heightInchesInput" placeholder="Height (in)" inputmode="numeric">
         </div>
       </div>
-      <div class="parse-status" id="heightStatus" style="margin:8px 0 0 0;"></div>
+      <div class="plan-name-row">
+        <div class="num-row" style="margin-bottom:0;">
+          <input type="number" id="ageInput" placeholder="Age" inputmode="numeric">
+          <select class="plan-type-select" id="genderInput" style="margin-bottom:0;flex:1;">
+            <option value="">Gender</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+            <option value="na">Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+      <div class="num-row">
+        <input type="date" id="weightDateInput">
+        <input type="number" id="weightValueInput" placeholder="Weight (lb)" inputmode="decimal">
+      </div>
+      <button class="add-btn" id="weightAddBtn">Add weight</button>
     </div>
     <div class="card">
       <h2>Trend</h2>
-      <div class="chart-wrap" id="chartWrap"></div>
+      <div class="chart-wrap" id="chartWrap"><div class="empty">Log at least two entries to see your trend line.</div></div>
       <div class="weight-list" id="weightList"></div>
     </div>
   </div>
@@ -336,7 +358,7 @@
     </div>
     <div class="card">
       <h2>Trend</h2>
-      <div class="chart-wrap" id="stepsChartWrap"></div>
+      <div class="chart-wrap" id="stepsChartWrap"><div class="empty">Log at least two entries to see your trend line.</div></div>
       <div class="weight-list" id="stepsList"></div>
     </div>
   </div>
@@ -344,7 +366,9 @@
   <div class="tab-panel" id="tab-share">
     <div class="card">
       <h2>Share progress</h2>
-      <div class="share-preview" id="sharePreview"></div>
+      <div class="share-preview" id="sharePreview"><span class="sp-title">Preview</span>💪 Bring the Pain — my progress
+Day streak: 0
+Total sets logged: 0</div>
       <div class="plan-form-actions">
         <button class="add-btn" id="shareBtn">Share</button>
         <button class="cancel-edit-btn" id="shareCopyBtn">Copy text</button>
@@ -354,19 +378,19 @@
 
     <div class="card">
       <h2>Get it on your phone</h2>
-      <div class="qr-wrap" id="qrWrap"></div>
+      <div class="qr-wrap" id="qrWrap" title="file:///C:/Users/keith/Downloads/workout-tracker.html"><canvas width="180" height="180" style="display: none;"></canvas><img src="data:image/png;base64,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" style="display: block;"></div>
       <div class="link-copy-row">
-        <input type="text" id="pageLinkInput" readonly>
+        <input type="text" id="pageLinkInput" readonly="">
         <button id="copyLinkBtn">Copy link</button>
       </div>
-      <div class="parse-status" id="qrStatus"></div>
+      <div class="parse-status" id="qrStatus">This page is open as a local file, so the QR code and link only work on this device for now. Host the file online (Google Drive share link, GitHub Pages, Netlify Drop, etc.) to get a link others can scan and open.</div>
     </div>
   </div>
 
   <div class="footer-note">Saved automatically on this device.</div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="./index_files/qrcode.min.js.download"></script>
 
 <script>
 const appStorage = {
@@ -383,7 +407,7 @@ const appStorage = {
     }catch(e){ return null; }
   }
 };
-const KEYS = { entries:'entries', plan:'plan', weight:'bodyweight', planNames:'planNames', sessionTimer:'sessionTimer', planLinks:'planLinks', planRounds:'planRounds', steps:'steps', height:'height' };
+const KEYS = { entries:'entries', plan:'plan', weight:'bodyweight', planNames:'planNames', sessionTimer:'sessionTimer', planLinks:'planLinks', planRounds:'planRounds', steps:'steps', height:'height', profile:'profile' };
 let entries = [];
 let plan = {};      // { Sun:[...], Mon:[...], ... }
 let planNames = {}; // { Sun:'Rest', Mon:'Push Day', ... }
@@ -392,6 +416,7 @@ let planRounds = {}; // { Mon: 3 }
 let weights = [];   // [{id,date,weight}]
 let stepsLog = [];  // [{id,date,steps}]
 let height = { feet: null, inches: null };
+let profile = { age: null, gender: '' };
 let editingPlanIndex = null;
 const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 let selectedPlanDay = DAY_NAMES[new Date().getDay()];
@@ -410,6 +435,7 @@ async function loadAll(){
   try{ const r = await appStorage.get(KEYS.weight); weights = r ? JSON.parse(r.value) : []; }catch(e){ weights = []; }
   try{ const r = await appStorage.get(KEYS.steps); stepsLog = r ? JSON.parse(r.value) : []; }catch(e){ stepsLog = []; }
   try{ const r = await appStorage.get(KEYS.height); height = r ? JSON.parse(r.value) : { feet: null, inches: null }; }catch(e){ height = { feet: null, inches: null }; }
+  try{ const r = await appStorage.get(KEYS.profile); profile = r ? JSON.parse(r.value) : { age: null, gender: '' }; }catch(e){ profile = { age: null, gender: '' }; }
   try{
     const r = await appStorage.get(KEYS.sessionTimer);
     sessionTimer = r ? JSON.parse(r.value) : null;
@@ -428,6 +454,7 @@ async function savePlanRounds(){ try{ await appStorage.set(KEYS.planRounds, JSON
 async function saveWeights(){ try{ await appStorage.set(KEYS.weight, JSON.stringify(weights)); }catch(e){} }
 async function saveSteps(){ try{ await appStorage.set(KEYS.steps, JSON.stringify(stepsLog)); }catch(e){} }
 async function saveHeight(){ try{ await appStorage.set(KEYS.height, JSON.stringify(height)); }catch(e){} }
+async function saveProfile(){ try{ await appStorage.set(KEYS.profile, JSON.stringify(profile)); }catch(e){} }
 async function saveSessionTimer(){ try{ await appStorage.set(KEYS.sessionTimer, JSON.stringify(sessionTimer)); }catch(e){} }
 
 /* ---------- helpers ---------- */
@@ -532,6 +559,19 @@ document.getElementById('timerResetBtn').addEventListener('click', () => {
   timerRemaining = timerTotal;
   document.getElementById('timerStartBtn').textContent = 'Start';
   renderTimer();
+});
+document.getElementById('customTimerSetBtn').addEventListener('click', () => {
+  const input = document.getElementById('customTimerInput');
+  const secs = parseTimeToSeconds(input.value);
+  if(secs == null || secs <= 0) { input.focus(); return; }
+  clearInterval(timerInterval); timerRunning = false;
+  timerTotal = secs; timerRemaining = secs;
+  document.getElementById('timerStartBtn').textContent = 'Start';
+  renderTimer();
+  input.value = '';
+});
+document.getElementById('customTimerInput').addEventListener('keydown', ev => {
+  if(ev.key === 'Enter') document.getElementById('customTimerSetBtn').click();
 });
 renderTimer();
 
@@ -1052,13 +1092,51 @@ function totalHeightInches(){
   if(height.feet == null && height.inches == null) return null;
   return (Number(height.feet) || 0) * 12 + (Number(height.inches) || 0);
 }
+function bmiCategory(bmi){
+  if(bmi < 18.5) return 'Underweight';
+  if(bmi < 25) return 'Normal weight';
+  if(bmi < 30) return 'Overweight';
+  return 'Obese';
+}
+function computeBMI(weightLb){
+  const inches = totalHeightInches();
+  if(!inches || !weightLb) return null;
+  return (703 * weightLb) / (inches * inches);
+}
+function latestLoggedWeight(){
+  if(weights.length === 0) return null;
+  return [...weights].sort((a,b) => b.date.localeCompare(a.date))[0].weight;
+}
+function renderBmiReadout(){
+  const el = document.getElementById('bmiReadout');
+  const typedWeight = Number(document.getElementById('weightValueInput').value);
+  const weightLb = typedWeight > 0 ? typedWeight : latestLoggedWeight();
+  const inches = totalHeightInches();
+  if(!inches){
+    el.innerHTML = `<div class="bmi-hint">Enter your height below to calculate BMI.</div>`;
+    return;
+  }
+  if(!weightLb){
+    el.innerHTML = `<div class="bmi-hint">Log a weight below to calculate BMI.</div>`;
+    return;
+  }
+  const bmi = computeBMI(weightLb);
+  const profileBits = [];
+  if(profile.age) profileBits.push(`age ${profile.age}`);
+  if(profile.gender && profile.gender !== 'na') profileBits.push(profile.gender);
+  const profileText = profileBits.length ? `, ${profileBits.join(', ')}` : '';
+  el.innerHTML = `
+    <div class="bmi-num">${bmi.toFixed(1)}</div>
+    <div class="bmi-cat">${bmiCategory(bmi)}</div>
+    <div class="bmi-hint">Based on ${weightLb} lb at ${height.feet || 0}'${height.inches || 0}"${profileText}</div>
+  `;
+}
 function renderHeightInputs(){
   document.getElementById('heightFeetInput').value = height.feet ?? '';
   document.getElementById('heightInchesInput').value = height.inches ?? '';
-  const inches = totalHeightInches();
-  document.getElementById('heightStatus').textContent = inches
-    ? `Height set: ${height.feet || 0}'${height.inches || 0}" — BMI shown on your weight entries.`
-    : 'Set your height to see BMI alongside your weigh-ins.';
+  document.getElementById('ageInput').value = profile.age ?? '';
+  document.getElementById('genderInput').value = profile.gender ?? '';
+  renderBmiReadout();
 }
 function saveHeightFromInputs(){
   const feet = document.getElementById('heightFeetInput').value;
@@ -1068,13 +1146,18 @@ function saveHeightFromInputs(){
   renderHeightInputs();
   renderWeightList();
 }
+function saveProfileFromInputs(){
+  const age = document.getElementById('ageInput').value;
+  const gender = document.getElementById('genderInput').value;
+  profile = { age: age ? Number(age) : null, gender: gender || '' };
+  saveProfile();
+  renderBmiReadout();
+}
 document.getElementById('heightFeetInput').addEventListener('input', saveHeightFromInputs);
 document.getElementById('heightInchesInput').addEventListener('input', saveHeightFromInputs);
-function computeBMI(weightLb){
-  const inches = totalHeightInches();
-  if(!inches) return null;
-  return (703 * weightLb) / (inches * inches);
-}
+document.getElementById('ageInput').addEventListener('input', saveProfileFromInputs);
+document.getElementById('genderInput').addEventListener('change', saveProfileFromInputs);
+document.getElementById('weightValueInput').addEventListener('input', renderBmiReadout);
 
 /* ---------- steps tab ---------- */
 document.getElementById('stepsDateInput').value = todayStr();
@@ -1212,5 +1295,6 @@ document.getElementById('weightInput').addEventListener('keydown', ev => { if(ev
 function renderAll(){ renderLogTab(); renderPlanTab(); renderWeightTab(); renderStepsTab(); renderShareTab(); }
 loadAll();
 </script>
-</body>
-</html>
+
+
+</body></html>
