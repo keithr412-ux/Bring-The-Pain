@@ -1,5 +1,5 @@
 // Bump this version any time you update index.html so phones fetch the new copy.
-const CACHE_NAME = 'btp-cache-v28';
+const CACHE_NAME = 'btp-cache-v29';
 const FILES_TO_CACHE = [
   './',
   './index.html',
