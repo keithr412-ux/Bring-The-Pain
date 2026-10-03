@@ -5394,7 +5394,14 @@ document.getElementById('importBackupFile').addEventListener('change', async (ev
 // file, and everyone else skips the "Connect Firebase" step entirely — they'll
 // only ever see a plain sign up / log in screen. Leave this null to let each
 // person paste in their own config instead (useful for testing, not for a group).
-const BUILT_IN_FIREBASE_CONFIG = null;
+const BUILT_IN_FIREBASE_CONFIG = {
+  apiKey: "AIzaSyBzElIutnbZkfyhjNUrqyy5BRis7VVzAfw",
+  authDomain: "bring-the-pain-19578.firebaseapp.com",
+  projectId: "bring-the-pain-19578",
+  storageBucket: "bring-the-pain-19578.firebasestorage.app",
+  messagingSenderId: "657172404618",
+  appId: "1:657172404618:web:700f10f20c710894a41073"
+};
 // Example:
 // const BUILT_IN_FIREBASE_CONFIG = {
 //   apiKey: "AIza...", authDomain: "your-project.firebaseapp.com",
