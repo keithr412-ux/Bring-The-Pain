@@ -8086,7 +8086,7 @@ async function finishOnboard(){
    v3: rest-timer automation, plates + warm-ups, exercise help,
    feedback, and merge-based cloud sync
    ================================================================ */
-const APP_VERSION = 'v52';
+const APP_VERSION = 'v53';
 const FEEDBACK_EMAIL = ''; // optional: put an address here and the feedback screen gets a "Send by email" button
 v2prefs = { autoRest:true, restSecs:90, barLb:45, gpsUnit:'mi', ...v2prefs };
 /* ---------- rest timer: auto-start + floating pill + buzz ---------- */
@@ -8540,7 +8540,24 @@ loadAll().then(async () => {
       fetch('sw.js', { method: 'HEAD' })
         .then(res => {
           if (res.ok) {
+            const hadController = !!navigator.serviceWorker.controller;
+            let reloadPending = false;
+            const reloadIfIdle = () => {
+              const a = document.activeElement;
+              if(a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)){ a.addEventListener('blur', () => location.reload(), { once:true }); }
+              else location.reload();
+            };
+            // when a new version takes over, reload once so beta users get it without reinstalling
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+              if(!hadController || reloadPending) return;
+              reloadPending = true; reloadIfIdle();
+            });
             navigator.serviceWorker.register('sw.js')
+              .then(reg => {
+                const check = () => { try{ reg.update(); }catch(e){} };
+                document.addEventListener('visibilitychange', () => { if(document.visibilityState === 'visible') check(); });
+                check();
+              })
               .catch(err => console.warn('Service worker registration failed:', err));
           }
         })
