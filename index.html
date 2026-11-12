@@ -377,7 +377,7 @@
   .round-grid td.movement-label{text-align:left;padding-right:8px;}
   .round-grid .movement-label .ex-name{font-size:12.5px;color:var(--chalk);font-weight:600;}
   .round-grid .movement-label .ex-detail{font-size:10.5px;color:var(--chalk-dim);margin-top:1px;}
-  .round-cell{width:28px;height:28px;border-radius:4px;background:var(--bg);border:1px solid var(--line);color:transparent;font-size:13px;font-weight:700;}
+  .round-cell{width:40px;height:40px;border-radius:8px;background:var(--bg);border:1px solid var(--line);color:transparent;font-size:13px;font-weight:700;}
   .round-cell:hover{border-color:var(--plate);}
   .round-cell.done{background:var(--plate);border-color:var(--plate);color:#1B1A18;}
   .round-progress{font-size:12px;color:var(--chalk-dim);margin:0 0 10px;}
@@ -702,6 +702,50 @@
 .wl-item b{font-family:'Oswald',sans-serif;font-weight:600;font-size:15px}
 .wl-item span{font-size:11px;color:var(--chalk-dim)}
 .wl-item.on{border-color:#5FC8F2}
+
+/* v66 — coach, deload, lite */
+.rest-adjust{display:flex;gap:8px;justify-content:center;margin:2px 0 12px}
+.rest-adjust button{flex:1;max-width:120px;min-height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:transparent;color:var(--chalk);font-size:14px;font-weight:600}
+.coach-card{margin-top:12px;border-radius:18px;padding:16px 18px;background:var(--surface-2);border:1px solid rgba(95,200,242,.28)}
+.coach-card.deload{border-color:rgba(255,181,71,.55);background:rgba(255,181,71,.08)}
+.coach-card .ct{font-family:'Oswald',sans-serif;font-weight:600;font-size:17px;color:var(--chalk)}
+.coach-card .cs{font-size:13px;color:var(--chalk-dim);margin-top:4px;line-height:1.4}
+.coach-card .cw{display:flex;gap:6px;margin:10px 0 2px}
+.coach-card .cw i{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.12)}
+.coach-card .cw i.on{background:#5FC8F2}.coach-card .cw i.dl{background:#FFB547}.coach-card .cw i.now{outline:2px solid var(--chalk);outline-offset:1px}
+.coach-sec{margin-top:16px}.coach-sec .v2-eyebrow{margin-bottom:8px}
+.coach-seg{display:flex;flex-wrap:wrap;gap:8px}
+.coach-seg button{padding:10px 14px;min-height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:transparent;color:var(--chalk-dim);font-size:14px;font-weight:600}
+.coach-seg button.on{background:var(--grad-blue);color:#0F1A2B;border-color:transparent}
+.coach-step{display:flex;align-items:center;gap:12px}.coach-step b{min-width:64px;text-align:center;font-family:'Oswald',sans-serif;font-size:20px}
+.coach-step button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--chalk);font-size:20px}
+.qb-cardio{margin-top:12px;padding:12px;border-radius:12px;border:1px dashed rgba(95,200,242,.4)}
+.qb-cardio .coach-seg button{padding:8px 12px;min-height:38px;font-size:13px}
+body.lite .ls-more, body.lite #setsRow, body.lite #lsTimer, body.lite .wl-fold, body.lite .qb-cardio, body.lite .coach-card .cs.adv{display:none !important}
+
+/* v67 — reliable taps on phones */
+button,select,summary,label,.round-cell,.wod-chip,.wl-item,.wl-tab{touch-action:manipulation;-webkit-tap-highlight-color:rgba(95,200,242,.25)}
+.round-grid td{padding:3px}
+.round-grid th{min-width:46px}
+#btpToast{position:fixed;left:50%;transform:translate(-50%,12px);bottom:calc(136px + env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:12px;max-width:calc(100% - 32px);padding:10px 14px;border-radius:999px;background:rgba(20,18,16,.96);border:1px solid rgba(95,200,242,.5);color:var(--chalk);font-size:14px;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
+#btpToast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#btpToast button{background:transparent;border:1px solid rgba(255,255,255,.25);color:#5FC8F2;font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px;min-height:32px}
+
+/* v68 muscle map */
+.mm-card{display:flex;gap:12px;align-items:center;margin:8px 0 12px;padding:10px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.03)}
+.mm-fig{flex:0 0 132px}.mm-svg{width:132px;height:auto;display:block}
+.mm-cap{display:flex;justify-content:space-around;font-size:10px;color:var(--muted,#9a948c);letter-spacing:.08em;text-transform:uppercase}
+.mb{fill:#3b3631;stroke:#6f685f;stroke-width:1}.mz{stroke-width:.8;stroke:rgba(255,255,255,.12)}.mz{fill:transparent}
+.mm-txt{min-width:0;font-size:13px;line-height:1.4}.mm-name{font-weight:700;font-size:15px;margin-bottom:4px}
+.mm-row{margin:3px 0}.mm-row b{font-weight:600;margin-right:4px}
+.mm-dot{width:9px;height:9px;border-radius:50%;background:#5FC8F2;display:inline-block;margin-right:6px}.mm-dot.lite{opacity:.4}
+.mm-cue{margin-top:6px;color:var(--muted,#a8a29a);font-size:12.5px}.mm-how{display:inline-block;margin-top:6px;color:#5FC8F2;font-size:12.5px}
+.mv-info{margin-left:6px;width:22px;height:22px;border-radius:50%;border:1px solid rgba(95,200,242,.5);background:transparent;color:#5FC8F2;font:italic 700 12px Georgia,serif;padding:0;vertical-align:middle}
+#mvSheet{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.55);display:none;align-items:flex-end;justify-content:center}
+#mvSheet.show{display:flex}
+.mm-sheet{position:relative;width:100%;max-width:520px;max-height:80vh;overflow:auto;padding:14px 14px calc(18px + env(safe-area-inset-bottom));background:#1b1917;border-radius:18px 18px 0 0;border:1px solid rgba(255,255,255,.12)}
+.mm-close{position:absolute;right:10px;top:8px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:inherit;font-size:20px;z-index:1}
+.mm-sheet .mm-card{margin-top:22px;border:0;padding:0;background:none}
 </style>
 </head>
 <body>
@@ -729,6 +773,7 @@
   <div class="tabs">
     <button class="tab-btn active" data-tab="today">Today</button>
     <button class="tab-btn" data-tab="more">More</button>
+    <button class="tab-btn" data-tab="coach">Coach</button>
     <button class="tab-btn" data-tab="reminders">Reminders</button>
     <button class="tab-btn" data-tab="export">Export</button>
     <button class="tab-btn" data-tab="feedback">Feedback</button>
@@ -747,6 +792,7 @@
 
   <div class="tab-panel active" id="tab-today"><div id="todayRoot"></div></div>
   <div class="tab-panel" id="tab-more"><div id="moreRoot"></div></div>
+  <div class="tab-panel" id="tab-coach"><div id="coachRoot"></div></div>
   <div class="tab-panel" id="tab-reminders"><div id="remindersRoot"></div></div>
   <div class="tab-panel" id="tab-export"><div id="exportRoot"></div></div>
   <div class="tab-panel" id="tab-feedback"><div id="feedbackRoot"></div></div>
@@ -845,6 +891,7 @@
             <button class="preset-btn" data-secs="120">2:00</button>
             <button class="preset-btn" data-secs="180">3:00</button>
           </div>
+          <div class="rest-adjust"><button type="button" id="restMinus">−15 s</button><button type="button" id="restPlus">+15 s</button></div>
           <div class="timer-controls">
             <button class="btn-start" id="timerStartBtn">Start</button>
             <button class="btn-reset" id="timerResetBtn">Reset</button>
@@ -1046,6 +1093,8 @@
         <option value="EMOM Conditioning">
         <option value="Engine Day">
         <option value="Strongman Medley">
+        <option value="Cardio Opener">
+        <option value="Cardio Finisher">
         <!-- Sprints: rower, running, assault bike -->
         <option value="Row 500m Repeats">
         <option value="Row 250m Sprints">
@@ -1060,6 +1109,13 @@
         <option value="Assault Bike Tabata">
         <option value="Bike Sprint EMOM">
         <option value="Sprint Triple">
+              <!-- Tactical: ACFT, ruck, military PT -->
+        <option value="ACFT Practice Test">
+        <option value="ACFT Strength Day">
+        <option value="Ruck March 4 mi">
+        <option value="Run Test 1.5 mi">
+        <option value="Military PT Circuit">
+        <option value="Sprint-Drag-Carry Practice">
       </datalist>
       <div class="wod-type-grid" id="wodTypeGrid">
         <button class="wod-type-btn" data-wodtype="rounds">Rounds<span class="wt-sub">N rounds of movements</span></button>
@@ -2366,6 +2422,7 @@ function addEntry(){
     }
     const newEntry = { id: Date.now()+'-'+Math.random().toString(36).slice(2,7), date: todayStr(), exercise: exName, type: 'strength', weight: weight ? Number(weight) : null, reps: reps ? Number(reps) : 1, rpe: rpe ? Number(rpe) : null };
     if(holdSecs) newEntry.holdSeconds = holdSecs;
+    try{ const dl = coachWeekInfo(); if(dl && dl.deload) newEntry.deload = true; }catch(e){}
     newPR = detectPR(newEntry);
     entries.unshift(newEntry);
     lsOk(`Logged ${exName} · ${holdSecs ? holdSecs + ' s hold' : (weight ? weight + ' lb × ' : '') + newEntry.reps + (weight ? '' : ' reps')}`, newEntry.id);
@@ -2395,12 +2452,23 @@ function updateExerciseSuggestHint(){
   const lib = exerciseLibraryLookup(name);
   const prog = suggestedNextWeight(name);
   const parts = [];
-  if(lib && lib.category !== 'cardio') parts.push(`Target ${lib.sets}×${lib.reps} · ${lib.cue}`);
+  const sch = (lib && lib.category === 'cardio') || isHoldExercise(name) ? null : coachScheme();
+  const dlw = coachWeekInfo();
+  if(lib && lib.category !== 'cardio') parts.push(sch ? `${lib.cue}` : `Target ${lib.sets}×${lib.reps} · ${lib.cue}`);
   if(prog){
     const suggestPart = prog.suggestion !== prog.last.weight ? ` · Suggested today: ${prog.suggestion} lb` : '';
     parts.push(`Last time: ${prog.last.weight} lb × ${prog.last.reps}${suggestPart}`);
+    if(prog.why) parts.push(prog.why);
   }
-  hintEl.innerHTML = parts.map(p => `<div>${escapeHTML(p)}</div>`).join('');
+  let planBtn = '';
+  if(sch){
+    const sets = dlw && dlw.deload ? Math.max(2, Math.ceil(coachMid(sch.sets) / 2)) : coachMid(sch.sets);
+    parts.unshift(`Your ${sch.label.toLowerCase()} plan: ${sch.sets[0]}–${sch.sets[1]} sets × ${sch.reps[0]}–${sch.reps[1]} reps, rest ${fmtMS(coachRestSecs())}${dlw && dlw.deload ? ' · deload week: do about half the sets' : ''}`);
+    planBtn = `<button type="button" class="ls-chip" id="coachUsePlan" data-sets="${sets}" data-reps="${coachMid(sch.reps)}">Use ${sets} sets × ${coachMid(sch.reps)} reps</button>`;
+  }
+  hintEl.innerHTML = parts.map(p => `<div>${escapeHTML(p)}</div>`).join('') + planBtn;
+  const upb = document.getElementById('coachUsePlan');
+  if(upb) upb.onclick = () => { document.getElementById('setsInput').value = upb.dataset.sets; document.getElementById('repsInput').value = upb.dataset.reps; try{ syncSetsBtn(); }catch(e){} };
 
   // populate the actual weight/reps fields too, not just the hint text — only when the
   // person hasn't already typed something there, so we never clobber an active entry.
@@ -2412,6 +2480,7 @@ function updateExerciseSuggestHint(){
       if(hi && !hi.value && lib){ const t = parseInt(String(lib.reps).split('-').pop(), 10); if(!isNaN(t)) hi.value = t; }
     } else if(!repsField.value){
       if(prog) repsField.value = prog.last.reps;
+      else if(sch) repsField.value = coachMid(sch.reps);
       else if(lib){
         const topRep = parseInt(String(lib.reps).split('-').pop(), 10);
         if(!isNaN(topRep)) repsField.value = topRep;
@@ -2864,6 +2933,16 @@ function backfillDaySnapshots(){
   if(changed) saveDaySnapshots();
   try{ localStorage.setItem('BTP_snapBackfill', '1'); }catch(e){}
 }
+let btpToastTimer = null;
+function btpToast(text, undoFn){
+  let el = document.getElementById('btpToast');
+  if(!el){ el = document.createElement('div'); el.id = 'btpToast'; el.setAttribute('role','status'); el.setAttribute('aria-live','polite'); document.body.appendChild(el); }
+  clearTimeout(btpToastTimer);
+  el.textContent = text;
+  if(undoFn){ const b = document.createElement('button'); b.type = 'button'; b.textContent = 'Undo'; b.onclick = () => { el.classList.remove('show'); undoFn(); }; el.appendChild(b); }
+  el.classList.add('show');
+  btpToastTimer = setTimeout(() => el.classList.remove('show'), 3500);
+}
 function toggleRoundCell(dateStr, movement, roundLabel){
   const key = `${movement.id}_${roundLabel}`;
   if(!roundCompletions[dateStr]) roundCompletions[dateStr] = {};
@@ -2887,6 +2966,7 @@ function toggleRoundCell(dateStr, movement, roundLabel){
     if(wodOfMove && wodOfMove.type === 'warmup') entry.warmup = true;
     entries.unshift(entry);
     roundCompletions[dateStr][key] = id;
+    if(dateStr === todayStr() && movement.type !== 'cardio' && !movement.intervals && !(wodOfMove && wodOfMove.type === 'warmup')){ try{ autoStartRest(movement.restSeconds); }catch(e){} }
   }
   saveEntries(); saveRoundCompletions();
 }
@@ -3010,7 +3090,7 @@ function renderSingleWodExecution(dateStr, dayKey, wod, list, containerEl, refre
       totalCount++; if(done) doneCount++;
       return `<td><button class="round-cell ${done?'done':''}" data-movement="${item.id}" data-round="${roundLabel}">✓</button></td>`;
     }).join('');
-    return `<tr><td class="movement-label"><div class="ex-name">${escapeHTML(item.name)}${item.supersetWithNext ? ' <span class="superset-badge">🔗</span>' : ''}<button class="mv-del" data-mvdel="${item.id}" title="Remove this exercise">×</button></div><div class="ex-detail">${planItemDetail(item)}</div>${item.intervals ? `<button class="int-start-btn" data-int="${item.id}">▶ Start ${fmtSpec(item.intervals)}</button>` : ''}${item.holdSeconds ? `<button class="int-start-btn" data-hold="${item.id}">▶ Start ${formatSecondsToTime(item.holdSeconds)} hold</button>` : ''}</td>${cells}</tr>`;
+    return `<tr><td class="movement-label"><div class="ex-name">${escapeHTML(item.name)}${item.supersetWithNext ? ' <span class="superset-badge">🔗</span>' : ''}<button class="mv-info" data-mvinfo="${escapeHTML(item.name)}" title="Muscles worked" aria-label="Muscles worked">i</button><button class="mv-del" data-mvdel="${item.id}" title="Remove this exercise">×</button></div><div class="ex-detail">${planItemDetail(item)}</div>${item.intervals ? `<button class="int-start-btn" data-int="${item.id}">▶ Start ${fmtSpec(item.intervals)}</button>` : ''}${item.holdSeconds ? `<button class="int-start-btn" data-hold="${item.id}">▶ Start ${formatSecondsToTime(item.holdSeconds)} hold</button>` : ''}</td>${cells}</tr>`;
   }).join('');
   const showEditor = roundEditState && roundEditState.dateStr === dateStr && roundEditState.wodId === wod.id;
   const isWarm = type === 'warmup';
@@ -3036,17 +3116,22 @@ function renderSingleWodExecution(dateStr, dayKey, wod, list, containerEl, refre
   wireMovementDelete(containerEl, list, dayKey, wod, refresh);
   containerEl.querySelectorAll('[data-movement]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const movement = list.find(m => m.id === btn.getAttribute('data-movement'));
-      if(!movement) return;
+      const mid = btn.getAttribute('data-movement');
+      const movement = list.find(m => m.id === mid) || planForDate(dateStr).list.find(m => m.id === mid);
+      if(!movement){ btpToast('That set changed, so the list was refreshed. Tap it again.'); refresh(); return; }
       const roundLabel = btn.getAttribute('data-round');
       const key = `${movement.id}_${roundLabel}`;
       const alreadyDone = !!(roundCompletions[dateStr] || {})[key];
+      const sy = window.scrollY, wrap0 = containerEl.querySelector('.round-grid-wrap'), sx = wrap0 ? wrap0.scrollLeft : 0;
       if(alreadyDone){
         roundEditState = { dateStr, movement, roundLabel, wodId: wod.id, refresh };
       } else {
         toggleRoundCell(dateStr, movement, roundLabel);
+        btpToast(`Logged ${movement.name} · ${roundLabel.toUpperCase()}`, () => { toggleRoundCell(dateStr, movement, roundLabel); refresh(); });
       }
       refresh();
+      // the grid is rebuilt on every tap; keep the page and the grid where the finger was
+      try{ window.scrollTo(0, sy); const w2 = containerEl.querySelector('.round-grid-wrap'); if(w2) w2.scrollLeft = sx; }catch(e){}
     });
   });
   if(containerEl.querySelector('#addRoundBtn')) containerEl.querySelector('#addRoundBtn').addEventListener('click', () => {
@@ -3307,6 +3392,11 @@ const EXERCISE_LIBRARY = [
   { name:'Stationary Bike', category:'cardio', sets:1, reps:'distance', cue:'Steady cadence, adjust resistance to your effort target.' },
   { name:'Ski Erg', category:'cardio', sets:1, reps:'distance', cue:'Drive down with the lats, hinge at the hips.' },
   { name:'Jump Rope', category:'cardio', sets:1, reps:'distance', cue:'Light on your feet, small quick wrist turns.' },
+  { name:'Ruck', category:'cardio', sets:1, reps:'distance', cue:'Pack snug and high, short quick steps, lean slightly forward.' },
+  { name:'Hand-Release Push-up', category:'chest', sets:3, reps:'10-20', cue:'Chest to the floor, lift hands, then press up in one line.' },
+  { name:'Standing Power Throw', category:'full body', sets:3, reps:'3-5', cue:'Squat, then explode up and throw the med ball backward overhead.' },
+  { name:'Sprint-Drag-Carry', category:'full body', sets:3, reps:'1', cue:'Sprint, sled drag, lateral shuffle, kettlebell carry, sprint. Stay low.' },
+  { name:'Leg Tuck', category:'core', sets:3, reps:'5-10', cue:'Hang from the bar and pull knees to elbows. No swinging.' },
   { name:'Double-Unders', category:'cardio', sets:3, reps:'20-30', cue:'Rope passes twice per jump — quick wrists, steady rhythm.' },
   { name:'Walking', category:'cardio', sets:1, reps:'distance', cue:'Easy aerobic pace — great for recovery days.' },
   { name:'Sled Push', category:'cardio', sets:3, reps:'20-30m', cue:'Low body angle, drive hard through the legs.' },
@@ -3408,6 +3498,41 @@ const WOD_TEMPLATES = {
     { name:'Row', type:'cardio', runDistance:250, runUnit:'m' },
     { name:'Run', type:'cardio', runDistance:200, runUnit:'m' },
     { name:'Assault Bike', type:'cardio', runDistance:10, runUnit:'kcal' }
+  ]},
+  'Cardio Opener': { wodType:'warmup', rounds:1, movements:[
+    { name:'Jump Rope', type:'reps', reps:null, intervals:{work:60,rest:30,rounds:5} }
+  ]},
+  'Cardio Finisher': { wodType:'rounds', rounds:5, movements:[
+    { name:'Jump Rope', type:'reps', reps:null, intervals:{work:60,rest:30,rounds:5} }
+  ]},
+  'ACFT Practice Test': { wodType:'rounds', rounds:1, movements:[
+    { name:'Deadlift', type:'strength', reps:3 },
+    { name:'Standing Power Throw', type:'reps', reps:2 },
+    { name:'Hand-Release Push-up', type:'reps', reps:20 },
+    { name:'Sprint-Drag-Carry', type:'reps', reps:1 },
+    { name:'Plank', type:'reps', reps:null, holdSeconds:120 },
+    { name:'Run', type:'cardio', runDistance:2, runUnit:'mi' }
+  ]},
+  'ACFT Strength Day': { wodType:'rounds', rounds:4, movements:[
+    { name:'Deadlift', type:'strength', reps:5 },
+    { name:'Hand-Release Push-up', type:'reps', reps:15 },
+    { name:'Leg Tuck', type:'reps', reps:8 },
+    { name:'Plank', type:'reps', reps:null, holdSeconds:60 }
+  ]},
+  'Ruck March 4 mi': { wodType:'rounds', rounds:1, movements:[
+    { name:'Ruck', type:'cardio', runDistance:4, runUnit:'mi' }
+  ]},
+  'Run Test 1.5 mi': { wodType:'rounds', rounds:1, movements:[
+    { name:'Run', type:'cardio', runDistance:1.5, runUnit:'mi' }
+  ]},
+  'Military PT Circuit': { wodType:'amrap', timeCapMin:20, movements:[
+    { name:'Push-up', type:'reps', reps:15 },
+    { name:'Air Squat', type:'reps', reps:20 },
+    { name:'Sit-up', type:'reps', reps:20 },
+    { name:'Burpee', type:'reps', reps:10 }
+  ]},
+  'Sprint-Drag-Carry Practice': { wodType:'rounds', rounds:5, movements:[
+    { name:'Sprint-Drag-Carry', type:'reps', reps:1 }
   ]},
   'Strongman Medley': { wodType:'rounds', rounds:4, movements:[
     { name:'Farmer Carry', type:'cardio', runDistance:40, runUnit:'m' },
@@ -3950,7 +4075,8 @@ function estimate1RM(weight, reps){
 }
 function lastStrengthEntryFor(exerciseName){
   const norm = exerciseName.trim().toLowerCase();
-  const matches = entries.filter(e => e.type === 'strength' && e.exercise.trim().toLowerCase() === norm && e.weight);
+  let matches = entries.filter(e => e.type === 'strength' && e.exercise.trim().toLowerCase() === norm && e.weight && !e.deload);
+  if(!matches.length) matches = entries.filter(e => e.type === 'strength' && e.exercise.trim().toLowerCase() === norm && e.weight);
   if(!matches.length) return null;
   return matches.reduce((a,b) => (a.date >= b.date ? a : b));
 }
@@ -3960,10 +4086,17 @@ function suggestedNextWeight(exerciseName){
   const lib = exerciseLibraryLookup(exerciseName);
   const heavyCategory = lib && ['legs','back','full body','olympic'].includes(lib.category);
   const increment = heavyCategory ? 10 : 5;
-  const topRepTarget = lib ? parseInt(String(lib.reps).split('-').pop(), 10) : null;
-  let suggestion = last.weight;
-  if(topRepTarget && !isNaN(topRepTarget) && last.reps >= topRepTarget) suggestion = last.weight + increment;
-  return { last, suggestion };
+  const sch = coachScheme();
+  const libTop = lib ? parseInt(String(lib.reps).split('-').pop(), 10) : null;
+  const top = sch ? sch.reps[1] : libTop, bottom = sch ? sch.reps[0] : null;
+  const phase = (typeof nutritionPrefs !== 'undefined' && nutritionPrefs && nutritionPrefs.goal) || 'maintain';
+  const dl = coachWeekInfo();
+  let suggestion = last.weight, why = '';
+  if(dl && dl.deload){ suggestion = coachRound(last.weight * COACH_DELOAD_WEIGHT); why = 'Deload week: about 85% of your usual weight'; }
+  else if(top && !isNaN(top) && last.reps >= top){ suggestion = last.weight + increment; why = `You got ${last.reps} reps last time, so go up`; }
+  else if(phase === 'gain' && bottom && last.reps >= bottom){ suggestion = last.weight + 2.5; why = 'Bulking: a small bump each session adds up over the month'; }
+  else if(bottom && last.reps < bottom - 1){ suggestion = Math.max(0, coachRound(last.weight * 0.95)); why = `Under ${bottom} reps last time, so ease off a little`; }
+  return { last, suggestion, why };
 }
 function wodSummaryText(wod){
   const type = (wod && wod.type) || 'rounds';
@@ -7872,7 +8005,7 @@ document.getElementById('repsInput').addEventListener('keydown', ev => { if(ev.k
 document.getElementById('weightInput').addEventListener('keydown', ev => { if(ev.key==='Enter') addEntry(); });
 
 function renderAll(){
-  [renderTodayTab, renderMoreTab, renderRemindersTab, renderExportTab, renderQuickAdd, renderFeedbackTab, renderRestSettings].forEach(fn => { try{ fn(); }catch(e){ console.error(e); } });
+  [renderTodayTab, renderMoreTab, renderCoachTab, renderRemindersTab, renderExportTab, renderQuickAdd, renderFeedbackTab, renderRestSettings].forEach(fn => { try{ fn(); }catch(e){ console.error(e); } });
   renderLogTab(); renderPlanTab(); renderWeightTab(); renderNutritionTab(); renderCardioTab(); renderProgressTab(); renderAccountTab(); renderCommunityTab(); renderShareTab(); renderPrivateTab(); }
 // Beta flags — flip either to true when ready to expose it to testers.
 // Hides the tab entirely (and its content never becomes reachable); nothing else changes.
@@ -8161,7 +8294,7 @@ function renderTodayTab(){
         <div class="v2-sub">${cmp ? `lb this week · ${(cmp.ratio).toFixed(1)} ${cmp.item.plural}` : 'lb lifted this week'}</div>
       </div>
     </div>
-    ${cardioRow}${prRow}`;
+    ${coachTodayCard()}${cardioRow}${prRow}`;
   const sb = document.getElementById('todayStartBtn');
   if(sb) sb.onclick = () => {
     switchToTab('log');
@@ -8174,6 +8307,7 @@ function renderTodayTab(){
 function renderMoreTab(){
   const root = document.getElementById('moreRoot'); if(!root) return;
   const rows = [
+    ['coach','dumbbell','Coach & style','Goal, deload weeks, rest timer, Lite mode'],
     ['plan','list','Training Program','Build and edit your weekly workouts'],
     ['weight','scale','BMI Tracker','Bodyweight and body composition'],
     ['nutrition','food','Nutrition','Calories and daily targets'],
@@ -8184,8 +8318,9 @@ function renderMoreTab(){
     ['account','user','Account','Sign in and sync across devices'],
     ['share','share','Share','Send the app to a friend']
   ];
+  const shown = v2prefs.lite ? rows.filter(r => !['weight','nutrition','community'].includes(r[0])) : rows;
   root.innerHTML = `<div class="v2-eyebrow">Everything else</div><h1 class="v2-h1" style="margin-bottom:6px">More</h1>
-    <div class="v2-list">${rows.map(r => `<button class="v2-card v2-row v2-link" onclick="switchToTab('${r[0]}')"><span class="v2-iconchip">${V2_ICONS[r[1]]}</span><div class="v2-grow"><div class="v2-title">${r[2]}</div><div class="v2-sub">${r[3]}</div></div>${V2_ICONS.chev}</button>`).join('')}</div>`;
+    <div class="v2-list">${shown.map(r => `<button class="v2-card v2-row v2-link" onclick="switchToTab('${r[0]}')"><span class="v2-iconchip">${V2_ICONS[r[1]]}</span><div class="v2-grow"><div class="v2-title">${r[2]}</div><div class="v2-sub">${r[3]}</div></div>${V2_ICONS.chev}</button>`).join('')}</div>`;
 }
 
 /* ---------- Reminders ---------- */
@@ -8375,10 +8510,11 @@ function maybeStartOnboarding(){
 function obBar(n){ return `<div class="ob-progress">${[1,2,3].map(i => `<span class="${i<=n?'on':''}"></span>`).join('')}</div><div style="margin-top:10px;font-size:12px;color:#B5ADA3">Step ${n} of 3</div>`; }
 function renderOnboard(){
   const ov = document.getElementById('obOverlay'); let h = '';
-  const GOALS = [['strength','Build strength','Lift heavier over time'],['fat','Lose fat','Burn more, eat smarter'],['fit','Get fitter','Strength plus cardio'],['track','Just track workouts','I already know what to do']];
+  const GOALS = [['strength','Build strength','Heavy sets of 5–8 reps'],['volume','Build muscle','More sets of 12–20 reps'],['fat','Lose fat','Burn more, eat smarter'],['fit','Get fitter','Strength plus cardio']].concat(v2prefs.focus === 'tactical' ? [['acft','Pass my fitness test','ACFT / PT test prep']] : []).concat([['track','Just track workouts','I already know what to do']]);
   if(ob.step === 1){
     h = `${obBar(1)}<h1 class="v2-h1" style="margin-top:22px;font-size:32px">What's your goal?</h1>
       <p class="v2-note" style="margin:10px 0 0;font-size:15px">We'll set up a plan to match. You can change anything later.</p>
+      <div class="ob-seg" style="margin-top:14px"><button type="button" class="${v2prefs.focus==='tactical'?'':'on'}" onclick="obSetFocus('general')">General fitness</button><button type="button" class="${v2prefs.focus==='tactical'?'on':''}" onclick="obSetFocus('tactical')">Military / tactical</button></div>
       <div style="margin-top:22px;display:flex;flex-direction:column;gap:12px">${GOALS.map(g => `<button class="ob-opt ${ob.goal===g[0]?'sel':''}" onclick="obSet('goal','${g[0]}')"><div class="t">${g[1]}</div><div class="d">${g[2]}</div></button>`).join('')}</div>
       <div style="margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:6px;align-items:center"><button class="v2-btn" onclick="obGo(2)">Continue</button><button class="v2-link" style="min-height:44px;background:none;color:#B5ADA3;text-decoration:underline;width:auto;text-align:center" onclick="finishOnboard()">Skip setup</button></div>`;
   } else if(ob.step === 2){
@@ -8425,7 +8561,7 @@ async function finishOnboard(){
    v3: rest-timer automation, plates + warm-ups, exercise help,
    feedback, and merge-based cloud sync
    ================================================================ */
-const APP_VERSION = 'v65';
+const APP_VERSION = 'v69';
 const FEEDBACK_EMAIL = ''; // optional: put an address here and the feedback screen gets a "Send by email" button
 v2prefs = { autoRest:true, restSecs:90, barLb:45, gpsUnit:'mi', ...v2prefs };
 /* ---------- rest timer: auto-start + floating pill + buzz ---------- */
@@ -8472,10 +8608,11 @@ function updateRestPill(){
     pill.innerHTML = `<small>Rest</small>${fmt(timerRemaining)}`;
   } else pill.style.display = 'none';
 }
-function autoStartRest(){
+function autoStartRest(overrideSecs){
   if(lsMode() !== 'rest' || typeof timerTotal === 'undefined') return;
   clearInterval(timerInterval); timerRunning = false;
-  timerTotal = v2prefs.restSecs; timerRemaining = v2prefs.restSecs;
+  const secs = Number(overrideSecs) > 0 ? Number(overrideSecs) : coachRestSecs();
+  timerTotal = secs; timerRemaining = secs;
   renderTimer();
   document.getElementById('timerStartBtn').click();
   updateRestPill();
@@ -8513,8 +8650,17 @@ function renderRestSettings(){
   seg.querySelectorAll('[data-lsm]').forEach(b => b.onclick = () => setLsMode(b.dataset.lsm));
   const rc = document.getElementById('lsRestOpts');
   rc.style.display = m === 'rest' ? 'flex' : 'none';
-  rc.innerHTML = [30,60,90,120,180].map(n => `<button type="button" data-lsr="${n}" class="ls-chip ${v2prefs.restSecs===n?'on':''}">${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}</button>`).join('');
-  rc.querySelectorAll('[data-lsr]').forEach(b => b.onclick = () => { v2prefs.restSecs = Number(b.dataset.lsr); saveV2Prefs(); renderRestSettings(); });
+  const auto = coachRestAuto(), sc = coachScheme();
+  rc.innerHTML = (sc ? `<button type="button" data-lsr="auto" class="ls-chip ${auto?'on':''}">Auto · ${fmtMS(sc.rest)}</button>` : '') +
+    [30,60,90,120,180].map(n => `<button type="button" data-lsr="${n}" class="ls-chip ${!auto && v2prefs.restSecs===n?'on':''}">${fmtMS(n)}</button>`).join('') +
+    `<button type="button" class="ls-chip" data-lsr="-15" aria-label="15 seconds less">−15 s</button><button type="button" class="ls-chip" data-lsr="+15" aria-label="15 seconds more">+15 s</button>`;
+  rc.querySelectorAll('[data-lsr]').forEach(b => b.onclick = () => {
+    const v = b.dataset.lsr;
+    if(v === 'auto'){ v2prefs.restAuto = true; }
+    else if(v === '-15' || v === '+15'){ v2prefs.restSecs = Math.max(10, Math.min(600, coachRestSecs() + (v === '+15' ? 15 : -15))); v2prefs.restAuto = false; }
+    else { v2prefs.restSecs = Number(v); v2prefs.restAuto = false; }
+    saveV2Prefs(); renderRestSettings();
+  });
   const io = document.getElementById('lsIntOpts');
   io.style.display = m === 'intervals' ? 'block' : 'none';
   const cur = intervalSpec();
@@ -8528,7 +8674,7 @@ function renderRestSettings(){
   });
   const hint = document.getElementById('lsTimerHint');
   hint.textContent = m === 'off' ? 'No timer will start when you add a set.'
-    : m === 'rest' ? `Rest timer starts after each strength set you add (${Math.floor(v2prefs.restSecs/60)}:${String(v2prefs.restSecs%60).padStart(2,'0')}).`
+    : m === 'rest' ? `Rest timer starts after each strength set you finish (${fmtMS(coachRestSecs())}${coachRestAuto() ? ', set by your goal' : ''}). Adjust it here or on the timer.`
     : `Add set starts ${cur.replace(' ×', ' for ')} rounds (work/rest seconds) for this exercise.`;
   const sn = document.getElementById('lsStartNow');
   sn.style.display = m === 'off' ? 'none' : 'block';
@@ -8542,7 +8688,7 @@ function renderRestSettings(){
   document.getElementById('pibReset').addEventListener('click', () => resetTabataTimer());
   document.getElementById('lsStartNow').addEventListener('click', () => {
     const name = document.getElementById('exerciseInput').value.trim();
-    if(lsMode() === 'rest'){ clearInterval(timerInterval); timerRunning = false; timerTotal = v2prefs.restSecs; timerRemaining = v2prefs.restSecs; renderTimer(); document.getElementById('timerStartBtn').click(); updateRestPill(); }
+    if(lsMode() === 'rest'){ clearInterval(timerInterval); timerRunning = false; timerTotal = coachRestSecs(); timerRemaining = coachRestSecs(); renderTimer(); document.getElementById('timerStartBtn').click(); updateRestPill(); }
     else if(lsMode() === 'intervals') startIntervalsFor(name);
   });
 })();
@@ -8551,7 +8697,7 @@ function renderRestSettings(){
 /* ---------- Build today's workout (from the Train screen) ---------- */
 let qbOpen = false, qbDraft = null;
 function qbOpenSafe(){ try{ return qbOpen; }catch(e){ return false; } }
-function qbNewDraft(){ return { name:'', type:'rounds', rounds:3, timeCap:null, items:[], repeat:false }; }
+function qbNewDraft(){ const c = coachDefaultCardio(); return { name:'', type:'rounds', rounds:3, timeCap:null, items:[], repeat:false, cardioWhen:c.when, cardioKey:c.key }; }
 /* ---------- workout library: grouped list, built from the #wodNameLibrary datalist comments ---------- */
 function wodLibraryGroups(){
   const dl = document.getElementById('wodNameLibrary'), groups = [], seen = new Set();
@@ -8592,7 +8738,7 @@ var wlActive = 0;
 var WL_SHORT = ['Girls','Heroes','Other','Splits','Conditioning'];
 function wodLibraryTabsHTML(selected){
   if(typeof wlActive !== 'number') wlActive = 0;
-  const WL_SHORT = ['Girls','Heroes','Other','Splits','Conditioning','Sprints'];
+  const WL_SHORT = ['Girls','Heroes','Other','Splits','Conditioning','Sprints','Tactical'];
   const groups = wodLibraryGroups();
   if(wlActive >= groups.length) wlActive = 0;
   const total = groups.reduce((n,g) => n + g.names.length, 0);
@@ -8655,6 +8801,7 @@ function renderQuickBuild(){
     <div class="num-row"><input type="number" id="qbExW" placeholder="Weight (lb)" inputmode="decimal"><input type="number" id="qbExR" placeholder="Reps" inputmode="numeric"></div>
     <div class="form-row" id="qbHoldRow" style="display:none;flex-wrap:wrap;"><span class="hold-lbl">Hold time (seconds)</span><input type="number" id="qbExH" placeholder="Hold time (seconds) — e.g. 45" min="1" inputmode="numeric"></div>
     <button type="button" class="same-btn" id="qbAddEx">+ Add movement</button>
+    ${coachCardioPickerHTML(d)}
     <label class="checkbox-row" style="margin-top:10px;"><input type="checkbox" id="qbRepeat" ${d.repeat?'checked':''}> Repeat every ${dayKey}</label>
     <div class="plan-form-actions"><button type="button" class="add-btn" id="qbCreate">Start workout</button><button type="button" class="cancel-edit-btn" id="qbCancel">Cancel</button></div>
   </div>`;
@@ -8691,6 +8838,8 @@ function renderQuickBuild(){
     qbSync(); d.items.push({ name:n, type: w ? 'strength' : 'reps', weight: w, reps: r, ...(h ? { holdSeconds: h } : {}) });
     renderQuickBuild(); $('qbExName').focus();
   };
+  el.querySelectorAll('[data-cw]').forEach(b => b.onclick = () => { qbSync(); d.cardioWhen = b.dataset.cw; renderQuickBuild(); });
+  el.querySelectorAll('[data-ck]').forEach(b => b.onclick = () => { qbSync(); d.cardioKey = b.dataset.ck; if(d.cardioWhen === 'none') d.cardioWhen = 'finish'; renderQuickBuild(); });
   $('qbCancel').onclick = () => { qbOpen = false; qbDraft = null; renderQuickBuild(); };
   $('qbCreate').onclick = () => {
     qbSync();
@@ -8703,9 +8852,20 @@ function renderQuickBuild(){
       const gone = (planWods[k] || []).filter(w => w.onlyDate && w.onlyDate < today).map(w => w.id);
       if(gone.length){ planWods[k] = planWods[k].filter(w => !gone.includes(w.id)); plan[k] = (plan[k] || []).filter(m => !gone.includes(m.wodId)); }
     });
+    const oneOff = d.repeat ? null : today;
+    const cardio = d.cardioWhen !== 'none' ? coachCardioBlock(d.cardioKey, d.cardioWhen) : null;
+    if(cardio && d.cardioWhen === 'open'){
+      const cid = addWodToDay(dayKey, { name: cardio.name, type: 'warmup', rounds: 1, onlyDate: oneOff });
+      if(!plan[dayKey]) plan[dayKey] = [];
+      cardio.items.forEach(it => plan[dayKey].push({ restSeconds:null, supersetWithNext:false, ...it, id:newId(), wodId:cid }));
+    }
     const id = addWodToDay(dayKey, { name: d.name || "Today's workout", type: d.type, rounds: d.type === 'warmup' ? 1 : d.rounds, timeCap: (['amrap','emom'].includes(d.type) ? (d.timeCap || 20) : d.type === 'fortime' ? (d.timeCap || null) : null), onlyDate: d.repeat ? null : today });
     if(!plan[dayKey]) plan[dayKey] = [];
     d.items.forEach(it => plan[dayKey].push({ restSeconds:null, supersetWithNext:false, ...it, id:newId(), wodId:id }));
+    if(cardio && d.cardioWhen === 'finish'){
+      const cid = addWodToDay(dayKey, { name: cardio.name, type: 'rounds', rounds: cardio.rounds, onlyDate: oneOff });
+      cardio.items.forEach(it => plan[dayKey].push({ restSeconds:null, supersetWithNext:false, ...it, id:newId(), wodId:cid }));
+    }
     savePlanWods(); savePlan();
     qbOpen = false; qbDraft = null;
     renderLogTab();
@@ -8944,8 +9104,261 @@ document.getElementById('logTypeInput').addEventListener('change', syncCardioLog
 populateExerciseDatalist();
 updateBottomNav('today');
 renderGpsUnitSeg(); syncCardioLogUi();
+/* ================================================================
+   v66: coach — goal-based sets/reps, weight progression, deload weeks,
+   cardio inside workouts, general vs tactical focus, Lite mode
+   ================================================================ */
+function fmtMS(n){ return `${Math.floor(n/60)}:${String(Math.floor(n%60)).padStart(2,'0')}`; }
+var COACH_DELOAD_WEIGHT = 0.85;
+var COACH_SCHEMES = {
+  strength: { label:'Strength', sets:[3,5], reps:[5,8],  rest:180, blurb:'Heavy work: 3–5 sets of 5–8 reps with long rests. Weight goes up when you reach the top reps.' },
+  volume:   { label:'Muscle (volume)', sets:[5,7], reps:[12,20], rest:75, blurb:'Volume work: 5–7 sets of 12–20 reps with shorter rests. Add weight once the top reps feel easy.' },
+  fat:      { label:'Fat loss', sets:[3,4], reps:[10,15], rest:45, blurb:'Keep the muscle you have: 3–4 sets of 10–15 reps, short rests, plus cardio in the workout.' },
+  fit:      { label:'General fitness', sets:[3,4], reps:[8,12], rest:90, blurb:'Balanced: 3–4 sets of 8–12 reps, plus cardio in the workout.' },
+  acft:     { label:'Fitness test prep', sets:[3,4], reps:[8,12], rest:60, blurb:'Test prep: 3–4 sets of 8–12 reps, short rests, plus run and ruck work.' }
+};
+function coachScheme(){ return COACH_SCHEMES[v2prefs.goal] || null; }
+function coachMid(r){ return Math.round((r[0] + r[1]) / 2); }
+function coachRound(w){ return Math.round(w / 2.5) * 2.5; }
+function coachRestAuto(){ if(!coachScheme()) return false; return v2prefs.restAuto !== undefined ? !!v2prefs.restAuto : (v2prefs.restSecs || 90) === 90; }
+function coachRestSecs(){ const sc = coachScheme(); return (coachRestAuto() && sc) ? sc.rest : (v2prefs.restSecs || 90); }
+function coachMonday(dateStr){
+  const d = new Date(dateStr + 'T12:00:00'); d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+  return dateKeyFromParts(d.getFullYear(), d.getMonth(), d.getDate());
+}
+function coachWeekInfo(){
+  const every = [3,4,5].includes(Number(v2prefs.deloadEvery)) ? Number(v2prefs.deloadEvery) : 4;
+  const enabled = v2prefs.autoDeload !== false;
+  const today = todayStr(), mon = coachMonday(today);
+  if(!entries.length) return { idx:1, every, deload:false, enabled, fresh:true };
+  const last = entries.reduce((m, e) => e.date > m ? e.date : m, '');
+  const gap = Math.round((Date.parse(today + 'T00:00:00Z') - Date.parse(last + 'T00:00:00Z')) / 86400000);
+  if(!v2prefs.deloadAnchor || gap > 14){ v2prefs.deloadAnchor = mon; saveV2Prefs(); }
+  const weeks = Math.round((Date.parse(mon + 'T00:00:00Z') - Date.parse(v2prefs.deloadAnchor + 'T00:00:00Z')) / 604800000);
+  const idx = ((weeks % every) + every) % every;
+  return { idx: idx + 1, every, deload: enabled && idx === every - 1, enabled, fresh:false };
+}
+function coachStartDeload(){ v2prefs.deloadAnchor = addDaysStr(coachMonday(todayStr()), -7 * (coachWeekInfo().every - 1)); v2prefs.autoDeload = true; saveV2Prefs(); renderAll(); }
+function coachRestartCycle(){ v2prefs.deloadAnchor = coachMonday(todayStr()); saveV2Prefs(); renderAll(); }
+function coachSet(k, v){ v2prefs[k] = v; saveV2Prefs(); if(k === 'lite') applyLite(); renderAll(); }
+function applyLite(){ document.body.classList.toggle('lite', !!v2prefs.lite); }
+function obSetFocus(f){ v2prefs.focus = f; if(f !== 'tactical' && v2prefs.goal === 'acft'){ v2prefs.goal = 'strength'; ob.goal = 'strength'; } saveV2Prefs(); renderOnboard(); }
+function coachBumpRest(d){
+  if(typeof timerRemaining === 'undefined') return;
+  timerRemaining = Math.max(0, timerRemaining + d); if(timerRemaining > timerTotal) timerTotal = timerRemaining;
+  renderTimer();
+}
+(function(){
+  const m = document.getElementById('restMinus'), p = document.getElementById('restPlus');
+  if(m) m.onclick = () => coachBumpRest(-15);
+  if(p) p.onclick = () => coachBumpRest(15);
+})();
+
+/* ---- cardio inside the workout ---- */
+var COACH_CARDIO_KEYS = ['rope','row','run','bike','ruck'];
+var COACH_CARDIO_LABEL = { rope:'Jump rope', row:'Row', run:'Run', bike:'Bike', ruck:'Ruck' };
+function coachCardioKeys(){ return v2prefs.focus === 'tactical' ? ['ruck','run','rope','row','bike'] : ['rope','row','run','bike']; }
+function coachDefaultCardio(){
+  if(v2prefs.cardioDefault === 'none' || !coachScheme()) return { when:'none', key: coachCardioKeys()[0] };
+  const t = v2prefs.focus === 'tactical', g = v2prefs.goal;
+  if(g === 'strength' || g === 'volume') return { when:'open', key: t ? 'run' : 'rope' };
+  if(g === 'fat') return { when:'finish', key: t ? 'run' : 'bike' };
+  if(g === 'acft') return { when:'finish', key: 'run' };
+  return { when:'finish', key: t ? 'ruck' : 'row' };
+}
+function coachCardioBlock(key, when){
+  const open = when === 'open', L = COACH_CARDIO_LABEL[key] || 'Cardio';
+  const mv = (name, dist, unit) => ({ name, type:'cardio', runDistance:dist, runUnit:unit });
+  let items, rounds = 1, text;
+  if(key === 'rope'){ items = [{ name:'Jump Rope', type:'reps', reps:null, intervals:{ work:60, rest:30, rounds:5 } }]; text = '5 rounds of jump rope (60 s on, 30 s off)'; }
+  else if(key === 'row'){ items = [mv('Row', open ? 500 : 250, 'm')]; rounds = open ? 1 : 4; text = open ? 'Row 500 m' : '4 rounds of 250 m row'; }
+  else if(key === 'run'){ items = [mv('Run', open ? 400 : 200, 'm')]; rounds = open ? 1 : 4; text = open ? 'Run 400 m' : '4 rounds of 200 m run'; }
+  else if(key === 'bike'){ items = [mv('Assault Bike', 10, 'kcal')]; rounds = open ? 1 : 5; text = open ? '10 calories on the bike' : '5 rounds of 10 calories on the bike'; }
+  else { items = [mv('Ruck', open ? 0.5 : 1, 'mi')]; text = open ? 'Ruck 0.5 mi' : 'Ruck 1 mi'; }
+  return { name: `Cardio ${open ? 'opener' : 'finisher'} · ${L}`, items, rounds, text };
+}
+function coachCardioPickerHTML(d){
+  const when = d.cardioWhen || 'none';
+  const blk = when !== 'none' ? coachCardioBlock(d.cardioKey, when) : null;
+  return `<div class="qb-cardio"><div class="ls-hint" style="margin:0 0 8px;">Cardio in this workout (no separate cardio session needed)</div>
+    <div class="coach-seg">${[['none','None'],['open','Start with it'],['finish','Finish with it']].map(([k,l]) => `<button type="button" data-cw="${k}" class="${when===k?'on':''}">${l}</button>`).join('')}</div>
+    ${blk ? `<div class="coach-seg" style="margin-top:8px;">${coachCardioKeys().map(k => `<button type="button" data-ck="${k}" class="${d.cardioKey===k?'on':''}">${COACH_CARDIO_LABEL[k]}</button>`).join('')}</div>
+    <div class="ls-hint" style="margin:8px 0 0;">${escapeHTML(blk.text)}${when==='open' ? ' as a warm-up before your lifts.' : ' after your lifts.'}</div>` : ''}</div>`;
+}
+
+/* ---- Today card ---- */
+function coachTodayCard(){
+  const sc = coachScheme(), wk = coachWeekInfo();
+  if(!sc && !wk.deload) return '';
+  if(wk.deload){
+    return `<div class="coach-card deload"><div class="ct">Deload week</div><div class="cs">Lighter on purpose. Use about 85% of your usual weights and about half the sets. Suggested weights in Log a set already drop to match.</div>
+      <div class="cw">${Array.from({length:wk.every},(_,i)=>`<i class="${i===wk.every-1?'dl now':'on'}"></i>`).join('')}</div>
+      <button class="v2-btn-ghost" style="margin-top:10px" onclick="coachRestartCycle()">Skip this deload</button></div>`;
+  }
+  const left = wk.every - wk.idx;
+  return `<div class="coach-card"><div class="ct">${wk.fresh ? 'Your plan' : `Week ${wk.idx} of ${wk.every}`}${sc ? ' · ' + escapeHTML(sc.label) : ''}</div>
+    <div class="cs">${sc ? `${sc.sets[0]}–${sc.sets[1]} sets × ${sc.reps[0]}–${sc.reps[1]} reps, rest ${fmtMS(coachRestSecs())}.` : ''}${wk.enabled && !wk.fresh ? ` Deload week in ${left} week${left===1?'':'s'}.` : ''}</div>
+    ${wk.enabled && !wk.fresh ? `<div class="cw">${Array.from({length:wk.every},(_,i)=>`<i class="${i===wk.every-1?'dl':'on'} ${i===wk.idx-1?'now':''}"></i>`).join('')}</div>` : ''}
+    <button class="v2-btn-ghost" style="margin-top:10px" onclick="switchToTab('coach')">Coach settings</button></div>`;
+}
+
+/* ---- Coach settings screen ---- */
+function renderCoachTab(){
+  const root = document.getElementById('coachRoot'); if(!root) return;
+  const t = v2prefs.focus === 'tactical', wk = coachWeekInfo(), sc = coachScheme();
+  const goals = [['strength','Build strength'],['volume','Build muscle'],['fat','Lose fat'],['fit','Get fitter']].concat(t ? [['acft','Fitness test prep']] : []).concat([['track','Just track']]);
+  const phase = (typeof nutritionPrefs !== 'undefined' && nutritionPrefs && nutritionPrefs.goal) || 'maintain';
+  const phaseTxt = phase === 'gain' ? 'Bulking: suggested weights creep up a little each session.' : phase === 'lose' ? 'Cutting: suggested weights hold steady so you keep your strength.' : 'Maintaining: weights go up when you reach the top of your rep range.';
+  const seg = (items, cur, fn) => `<div class="coach-seg">${items.map(([k,l]) => `<button type="button" class="${String(cur)===String(k)?'on':''}" onclick="${fn}('${k}')">${l}</button>`).join('')}</div>`;
+  root.innerHTML = `<div class="v2-eyebrow">More</div><h1 class="v2-h1" style="margin-bottom:6px">Coach &amp; style</h1>
+    <div class="v2-note">Tell the app how you train and it adjusts sets, reps, rest and weights for you.</div>
+    <div class="coach-sec"><div class="v2-eyebrow">Training focus</div>
+      ${seg([['general','General fitness'],['tactical','Military / tactical']], v2prefs.focus || 'general', "coachFocus")}
+      <div class="v2-note" style="margin-top:8px">${t ? 'Adds fitness-test goals (ACFT / PT), ruck and run cardio, and a Tactical tab in the workout library.' : 'Everyday strength and fitness. Switch to Military / tactical for test prep, ruck and run work.'}</div></div>
+    <div class="coach-sec"><div class="v2-eyebrow">Goal</div>
+      ${seg(goals, v2prefs.goal, "coachGoal")}
+      <div class="v2-card" style="margin-top:10px;padding:14px 16px"><div class="v2-note">${sc ? escapeHTML(sc.blurb) : 'No set or rep targets. The app just records what you do.'}</div>
+      <div class="v2-note" style="margin-top:8px">${escapeHTML(phaseTxt)} Change this under Nutrition.</div></div></div>
+    <div class="coach-sec"><div class="v2-eyebrow">Deload weeks</div>
+      <div class="v2-card v2-row" style="padding:14px 16px"><div class="v2-grow"><div class="v2-title" style="font-size:16px">Plan a lighter week</div><div class="v2-sub">${wk.enabled ? (wk.deload ? 'This is a deload week.' : (wk.fresh ? 'Starts counting when you log your first set.' : `Week ${wk.idx} of ${wk.every}. Deload week is week ${wk.every}.`)) : 'Off'}</div></div>
+      <button class="v2-switch ${wk.enabled?'on':''}" aria-label="Toggle deload weeks" aria-pressed="${wk.enabled}" onclick="coachSet('autoDeload', ${!wk.enabled})"></button></div>
+      <div style="margin-top:10px">${seg([[3,'Every 3 weeks'],[4,'Every 4 weeks'],[5,'Every 5 weeks']], wk.every, "coachEvery")}</div>
+      <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap"><button class="v2-btn-ghost" style="flex:1" onclick="coachStartDeload()">Start a deload now</button><button class="v2-btn-ghost" style="flex:1" onclick="coachRestartCycle()">Restart the cycle</button></div></div>
+    <div class="coach-sec"><div class="v2-eyebrow">Rest timer</div>
+      <div class="v2-card" style="padding:14px 16px"><div class="v2-note">Starts by itself when you finish a set (logging it, or ticking a round in today's workout). Currently <b style="color:#F3EEE6">${fmtMS(coachRestSecs())}</b>${coachRestAuto() ? ' from your goal' : ''}.</div>
+      <div class="coach-step" style="margin-top:12px"><button type="button" aria-label="Less rest" onclick="coachRestStep(-15)">−</button><b>${fmtMS(coachRestSecs())}</b><button type="button" aria-label="More rest" onclick="coachRestStep(15)">+</button>
+      ${sc ? `<button type="button" style="width:auto;border-radius:999px;padding:0 14px;font-size:13px" onclick="coachSet('restAuto', true)">Auto (${fmtMS(sc.rest)})</button>` : ''}</div></div></div>
+    <div class="coach-sec"><div class="v2-eyebrow">Cardio inside workouts</div>
+      ${seg([['auto','Suggest it'],['none','Off']], v2prefs.cardioDefault === 'none' ? 'none' : 'auto', "coachCardioDef")}
+      <div class="v2-note" style="margin-top:8px">When you build a workout, a short cardio opener or finisher (like 5 rounds of jump rope) is suggested for your goal. You can change or remove it each time.</div></div>
+    <div class="coach-sec"><div class="v2-eyebrow">Lite mode</div>
+      <div class="v2-card v2-row" style="padding:14px 16px"><div class="v2-grow"><div class="v2-title" style="font-size:16px">Keep it simple</div><div class="v2-sub">Hides sets/rounds, timers, plates, the workout library, and the Nutrition, BMI and Community screens. Your data stays.</div></div>
+      <button class="v2-switch ${v2prefs.lite?'on':''}" aria-label="Toggle Lite mode" aria-pressed="${!!v2prefs.lite}" onclick="coachSet('lite', ${!v2prefs.lite})"></button></div></div>`;
+}
+function coachFocus(v){ coachSet('focus', v); if(v !== 'tactical' && v2prefs.goal === 'acft') coachSet('goal', 'strength'); }
+function coachGoal(v){ coachSet('goal', v); }
+function coachEvery(v){ coachSet('deloadEvery', Number(v)); }
+function coachCardioDef(v){ coachSet('cardioDefault', v); }
+function coachRestStep(d){ v2prefs.restSecs = Math.max(10, Math.min(600, coachRestSecs() + d)); v2prefs.restAuto = false; saveV2Prefs(); renderAll(); }
+
+/* ---------- v68 muscle map ---------- */
+var MUSCLE_LABEL = {chest:'Chest',fdelt:'Front delts',sdelt:'Side delts',rdelt:'Rear delts',biceps:'Biceps',triceps:'Triceps',forearm:'Forearms',abs:'Abs',obl:'Obliques',quad:'Quads',add:'Inner thighs',calf:'Calves',trap:'Traps',lat:'Lats',mback:'Mid back',lback:'Lower back',glute:'Glutes',ham:'Hamstrings'};
+var MUSCLE_RULES = [
+  [/calf/, ['calf'], []],
+  [/hip thrust|glute bridge/, ['glute'], ['ham']],
+  [/nordic|leg curl/, ['ham'], ['calf','glute']],
+  [/leg extension/, ['quad'], []],
+  [/abduction/, ['glute'], []],
+  [/sumo/, ['glute','quad','add'], ['ham','lback']],
+  [/romanian|stiff-leg|good morning/, ['ham','glute'], ['lback']],
+  [/rack pull/, ['glute','ham','trap'], ['lback','forearm']],
+  [/deadlift/, ['glute','ham','lback'], ['quad','trap','lat','forearm']],
+  [/thruster|wall ball/, ['quad','glute','fdelt'], ['triceps','ham','abs']],
+  [/squat|leg press|hack|lunge|step-up|box jump/, ['quad','glute'], ['ham','add','calf']],
+  [/bench dips?|^dip$/, ['triceps','chest'], ['fdelt']],
+  [/close-grip|jm press|skull|triceps|kickback|extension/, ['triceps'], ['fdelt']],
+  [/rear delt|reverse pec|face pull/, ['rdelt'], ['trap','mback']],
+  [/lateral raise/, ['sdelt'], ['trap']],
+  [/front.*raise/, ['fdelt'], ['chest']],
+  [/pallof/, ['obl','abs'], []],
+  [/upright row|shrug/, ['trap'], ['sdelt','biceps']],
+  [/pec deck|fly|pullover/, ['chest'], ['fdelt','lat']],
+  [/bench|chest press|push-up|push up/, ['chest'], ['fdelt','triceps']],
+  [/straight-arm|pulldown/, ['lat'], ['biceps','mback']],
+  [/chin-up/, ['lat','biceps'], ['mback','forearm']],
+  [/pull-up/, ['lat'], ['biceps','mback','forearm']],
+  [/row/, ['lat','mback'], ['rdelt','biceps','trap']],
+  [/back extension/, ['lback'], ['glute','ham']],
+  [/wrist curl/, ['forearm'], []],
+  [/reverse curl|hammer|zottman/, ['biceps','forearm'], []],
+  [/curl/, ['biceps'], ['forearm']],
+  [/press|jerk|arnold|landmine/, ['fdelt','sdelt'], ['triceps','trap']],
+  [/side plank|twist|bicycle/, ['obl'], ['abs']],
+  [/bird dog/, ['lback','glute'], ['abs']],
+  [/leg raise|knee raise|leg tuck|v-up/, ['abs'], ['quad']],
+  [/plank|dead bug|rollout|crunch|sit-up/, ['abs'], ['obl']],
+  [/clean|snatch/, ['glute','ham','trap'], ['quad','fdelt','lback','forearm']],
+  [/kettlebell swing/, ['glute','ham'], ['lback','abs','fdelt']],
+  [/farmer|carry/, ['forearm','trap'], ['abs','obl']],
+  [/burpee/, ['chest','quad'], ['triceps','fdelt','abs']],
+  [/turkish/, ['fdelt','abs'], ['glute','quad']],
+  [/sled pull/, ['ham','glute'], ['lat','forearm']],
+  [/sled push/, ['quad','glute'], ['calf','fdelt']],
+  [/bear crawl/, ['fdelt','abs'], ['quad','triceps']],
+  [/sprint-drag|power throw/, ['glute','fdelt'], ['abs','quad','lat']],
+  [/ski/, ['lat','abs'], ['triceps','quad']],
+  [/^row$|rower/, ['lat','quad'], ['ham','mback','biceps']],
+  [/rope|double-under/, ['calf'], ['forearm','sdelt']],
+  [/run|bike|stair|walk|ruck|treadmill|sprint/, ['quad','ham','calf','glute'], []]
+];
+var MUSCLE_BY_CAT = {legs:[['quad','glute'],['ham']],back:[['lat','mback'],['biceps']],chest:[['chest'],['triceps','fdelt']],shoulders:[['fdelt','sdelt'],['triceps']],arms:[['biceps','triceps'],['forearm']],core:[['abs'],['obl']],olympic:[['glute','ham','trap'],['quad','fdelt']],'full body':[['quad','glute','fdelt'],['abs']],cardio:[['quad','ham','calf'],[]]};
+function muscleInfo(name){
+  const n = String(name||'').trim().toLowerCase(); if(!n) return null;
+  if(n.indexOf(' + ') > 0){
+    const p = new Set(), s = new Set();
+    n.split(' + ').forEach(part => { const m = muscleInfo(part); if(m){ m.p.forEach(x => p.add(x)); m.s.forEach(x => s.add(x)); } });
+    p.forEach(x => s.delete(x)); return p.size ? {p:[...p], s:[...s]} : null;
+  }
+  for(const r of MUSCLE_RULES){ if(r[0].test(n)) return {p:r[1].slice(), s:r[2].slice()}; }
+  const ex = exerciseLibraryLookup(name), c = ex && MUSCLE_BY_CAT[ex.category];
+  return c ? {p:c[0].slice(), s:c[1].slice()} : null;
+}
+function muscleSVG(info){
+  const sm = pts => { const n = pts.length; let d = `M${pts[0][0]} ${pts[0][1]}`;
+    for(let k = 0; k < n; k++){ const a = pts[(k+n-1)%n], b = pts[k], c = pts[(k+1)%n], e = pts[(k+2)%n];
+      d += `C${(b[0]+(c[0]-a[0])/6).toFixed(1)} ${(b[1]+(c[1]-a[1])/6).toFixed(1)} ${(c[0]-(e[0]-b[0])/6).toFixed(1)} ${(c[1]-(e[1]-b[1])/6).toFixed(1)} ${c[0]} ${c[1]}`; }
+    return d + 'Z'; };
+  const mir = pts => pts.map(q => [110-q[0], q[1]]);
+  const pair = pts => sm(pts) + sm(mir(pts));
+  const f = r => info.p.includes(r) ? 'fill:#5FC8F2;stroke:#bfeaff' : info.s.includes(r) ? 'fill:#5FC8F2;fill-opacity:.4;stroke:#5FC8F2;stroke-opacity:.5' : '';
+  const Z = (r, pts) => `<path class="mz" style="${f(r)}" d="${pair(pts)}"/>`;
+  const body = `<ellipse class="mb" cx="55" cy="13" rx="8.5" ry="10.5"/><path class="mb" d="M51 21 L59 21 L60 30 L50 30Z"/>`
+    + `<path class="mb" d="${pair([[55,28],[63,29],[75,34],[77,48],[72,60],[69,80],[73,100],[64,109],[55,111]])}"/>`
+    + `<path class="mb" d="${pair([[78,36],[85,40],[88,56],[88,72],[91,92],[93,105],[89,108],[85,100],[83,90],[81,72],[79,56],[76,46]])}"/>`
+    + `<path class="mb" d="${pair([[72,102],[75,124],[70,146],[71,160],[67,181],[71,189],[58,189],[60,178],[58,160],[58,146],[57,124],[56,110]])}"/>`;
+  const fr = body + Z('trap',[[56,27],[64,29],[74,34],[66,38],[56,34]]) + Z('chest',[[56,38],[68,38],[72,46],[67,55],[56,54]])
+    + Z('fdelt',[[74,34],[80,38],[81,48],[76,52],[73,44]]) + Z('sdelt',[[81,39],[85,45],[84,54],[81,50]])
+    + Z('biceps',[[80,53],[85,53],[86,67],[82,71],[79,64]]) + Z('forearm',[[81,73],[86,73],[89,94],[85,97],[82,86]])
+    + `<rect class="mz" style="${f('abs')}" x="50.5" y="57" width="9" height="33" rx="4"/>` + Z('obl',[[62,58],[68,60],[69,78],[64,87],[61,76]])
+    + Z('quad',[[58,110],[71,107],[73,124],[68,146],[60,146],[58,126]]) + Z('add',[[57,111],[59,114],[60,134],[57,138]]) + Z('calf',[[60,152],[68,152],[67,168],[63,178],[60,168]]);
+  const bk = body + Z('trap',[[55,27],[64,29],[74,35],[67,48],[55,64]]) + Z('rdelt',[[74,34],[80,38],[81,48],[76,52],[73,44]]) + Z('sdelt',[[81,39],[85,45],[84,54],[81,50]])
+    + Z('lat',[[58,52],[70,47],[71,60],[64,80],[58,78]]) + Z('mback',[[55,50],[60,50],[60,66],[55,66]])
+    + Z('triceps',[[80,53],[85,53],[86,67],[82,71],[79,64]]) + Z('forearm',[[81,73],[86,73],[89,94],[85,97],[82,86]])
+    + Z('lback',[[55,70],[62,70],[63,86],[55,90]]) + Z('glute',[[55,92],[70,94],[73,106],[64,114],[55,110]])
+    + Z('ham',[[58,117],[72,115],[73,130],[68,148],[60,148],[58,132]]) + Z('calf',[[60,151],[70,151],[70,163],[66,177],[61,170]]);
+  return `<svg class="mm-svg" viewBox="0 0 220 192" role="img" aria-label="Muscles worked"><g>${fr}</g><g transform="translate(110,0)">${bk}</g></svg><div class="mm-cap"><span>Front</span><span>Back</span></div>`;
+}
+function muscleCardHTML(name, opts){
+  const info = muscleInfo(name); if(!info) return '';
+  const ex = exerciseLibraryLookup(name);
+  const L = a => a.map(x => MUSCLE_LABEL[x]).join(', ');
+  return `<div class="mm-card"><div class="mm-fig">${muscleSVG(info)}</div><div class="mm-txt">
+    <div class="mm-name">${escapeHTML(ex ? ex.name : name)}</div>
+    <div class="mm-row"><i class="mm-dot"></i><b>Targets</b> ${L(info.p)}</div>
+    ${info.s.length ? `<div class="mm-row"><i class="mm-dot lite"></i><b>Also works</b> ${L(info.s)}</div>` : ''}
+    ${ex && ex.cue ? `<div class="mm-cue">${escapeHTML(ex.cue)}</div>` : ''}
+    <a class="mm-how" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(name + ' proper form')}">Watch how to do it ↗</a></div></div>`;
+}
+function openMovementSheet(name){
+  let el = document.getElementById('mvSheet');
+  if(!el){ el = document.createElement('div'); el.id = 'mvSheet'; document.body.appendChild(el);
+    el.addEventListener('click', e => { if(e.target === el || e.target.closest('.mm-close')) el.classList.remove('show'); }); }
+  const html = muscleCardHTML(name);
+  el.innerHTML = `<div class="mm-sheet"><button type="button" class="mm-close" aria-label="Close">×</button>${html || '<div class="mm-name">'+escapeHTML(name)+'</div><div class="v2-note">No muscle map for this movement yet.</div>'}</div>`;
+  el.classList.add('show');
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-mvinfo]'); if(b){ e.preventDefault(); openMovementSheet(b.getAttribute('data-mvinfo')); } });
+(function wireMuscleCard(){
+  const inp = document.getElementById('exerciseInput'); if(!inp) return;
+  let card = document.getElementById('muscleCard');
+  if(!card){ card = document.createElement('div'); card.id = 'muscleCard'; inp.closest('.form-row').insertAdjacentElement('afterend', card); }
+  const upd = () => { card.innerHTML = muscleCardHTML(inp.value); };
+  ['input','change'].forEach(ev => inp.addEventListener(ev, upd)); upd();
+})();
+
 loadAll().then(async () => {
   await loadV2Prefs();
+  try{ applyLite(); }catch(e){}
   try{ backfillDaySnapshots(); snapshotToday(); }catch(e){}
   document.addEventListener('visibilitychange', () => { if(!document.hidden){ try{ snapshotToday(); }catch(e){} } });
   renderAll();
